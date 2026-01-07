@@ -1,10 +1,5 @@
-﻿export const onRequest: PagesFunction = async ({ request, params }) => {
+﻿export const onRequest: PagesFunction = async ({ request }) => {
   const url = new URL(request.url);
-  
-  // Only proxy if the path starts with /api
-  if (!url.pathname.startsWith("/api")) {
-    return fetch(request);
-  }
 
   const workerBase = "https://forge-fitness-api.abdulsalan1993.workers.dev";
   const target = new URL(workerBase);
